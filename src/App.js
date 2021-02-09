@@ -1,4 +1,5 @@
 
+import Nasa from './components/Nasa';
 import { useState, useEffect } from 'react';
 import './App.css';
 import Restaurant from './components/Restaurant'
