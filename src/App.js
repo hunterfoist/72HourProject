@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Nasa from './components/Nasa';
+import React, {useState, useEffect} from 'react'
 
 function App() {
-  return (
+
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+    
+  
+    function getLocation(position) {
+  setLatitude(position.coords.latitude);
+  setLongitude(position.coords.longitude);
+    }
+    
+    useEffect(() => {
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(getLocation);
+  }
+    })
+
+    console.log(latitude, longitude)
+    function confirmLocation() {
+      return longitude === 0 ? '' : <Nasa latitude={latitude} longitude={longitude}/>
+    } 
+  
+  
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {confirmLocation()}
     </div>
   );
 }
