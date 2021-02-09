@@ -11,7 +11,6 @@ const RestaurantChild = (props) => {
         
         <CardBody>
           <CardTitle tag="h3" className="text-dark">{props.restaurantChild.restaurant.name}</CardTitle>
-          
           <CardSubtitle tag="h4" className="mb-2 text-muted">{props.restaurantChild.restaurant.location.locality_verbose}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Cuisine: {props.restaurantChild.restaurant.cuisines}</CardSubtitle>
           <br/>
