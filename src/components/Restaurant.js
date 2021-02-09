@@ -14,7 +14,7 @@ const Restaurant = (props) => {
     function fetchRestaurant() {
     
     let lat = props.latitude;
-    
+    let long = props.longitude;
     const url = `https://developers.zomato.com/api/v2.1/search?count=6&lat=${lat}&lon=${props.longitude}`
 
     fetch(url, {

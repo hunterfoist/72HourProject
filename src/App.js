@@ -20,13 +20,18 @@ navigator.geolocation.getCurrentPosition(getLocation);
 }
   })
 
+  console.log(latitude, longitude)
+    function confirmLocation() {
+      return longitude === 0 ? '' : <Restaurant latitude={latitude} longitude={longitude}/>
+    }
+
   
   
   return (
     <div className="App">
-      <header className="App-header">
-        <Restaurant latitude={latitude} longitude={longitude} />
-      </header>
+      {<header className="App-header">
+        {confirmLocation()}
+      </header>}
     </div>
   );
 }
