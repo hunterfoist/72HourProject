@@ -31,6 +31,7 @@ navigator.geolocation.getCurrentPosition(getLocation);
   return (
     <div className="App">
       {<header className="App-header">
+        <h1>Minority Report</h1>
         {confirmLocation()}
         
       </header>}

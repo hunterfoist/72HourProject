@@ -29,7 +29,7 @@ const Nasa = (props) => {
       <Card>
         <CardBody>
           
-          <CardImg src={image}></CardImg>
+          <CardImg className='Nasa' src={image}></CardImg>
         </CardBody>
       </Card>
     </div>

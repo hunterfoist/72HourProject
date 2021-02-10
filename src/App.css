@@ -37,6 +37,9 @@
   }
 }
 
-.jumbotron {
-  background-size: cover;
+.Nasa {
+  background-position: center bottom;
+  padding-bottom: 30%;
+  height: 800px;
+  width: 800px;
 }
