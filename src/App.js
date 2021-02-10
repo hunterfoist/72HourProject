@@ -23,7 +23,7 @@ navigator.geolocation.getCurrentPosition(getLocation);
 
   console.log(latitude, longitude)
     function confirmLocation() {
-      return longitude === 0 ? '' : <Restaurant latitude={latitude} longitude={longitude}/>
+      return longitude === 0 ? '' : <> <Restaurant latitude={latitude} longitude={longitude}/> <Nasa latitude={latitude} longitude={longitude}/> </>
     }
 
   
@@ -32,6 +32,7 @@ navigator.geolocation.getCurrentPosition(getLocation);
     <div className="App">
       {<header className="App-header">
         {confirmLocation()}
+        
       </header>}
     </div>
   );
