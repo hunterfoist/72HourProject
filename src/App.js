@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+
+import Nasa from './components/Nasa';
+import { useState, useEffect } from 'react';
 import './App.css';
+import Restaurant from './components/Restaurant';
+import Weather from './components/Weather';
 
 function App() {
+  
+const [latitude, setLatitude] = useState(0);
+const [longitude, setLongitude] = useState(0);
+  
+
+  function getLocation(position) {
+setLatitude(position.coords.latitude);
+setLongitude(position.coords.longitude);
+  }
+  
+  useEffect(() => {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(getLocation);
+}
+  })
+
+  console.log(latitude, longitude)
+    function confirmLocation() {
+      return longitude === 0 ? '' : <> <Restaurant latitude={latitude} longitude={longitude}/> <Weather latitude={latitude} longitude={longitude}/> <Nasa latitude={latitude} longitude={longitude}/> </>
+    }
+
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Minority Report</h1>
+      {<header className="App-header">
+        <h1>Minority Report</h1>
+        {confirmLocation()}
+        
+      </header>}
     </div>
   );
 }
+
 
 export default App;
